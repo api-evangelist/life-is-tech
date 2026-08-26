@@ -1,0 +1,45 @@
+generated: '2026-08-25'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts and the company's public product hosts
+note: >-
+  Life is Tech publishes no API host, so there are no OpenAPI servers[] to probe. The hosts
+  below are the corporate site and the four public product sites linked from the homepage.
+hosts:
+- host: life-is-tech.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 23 23:59:59 2026 GMT
+  hsts: false
+- host: camp.life-is-tech.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 23 23:59:59 2026 GMT
+  hsts: false
+- host: members.life-is-tech.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 23 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: dx.life-is-tech.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 16 09:43:10 2026 GMT
+  hsts: false
+- host: lifeistech-lesson.jp
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan  7 23:59:59 2027 GMT
+  hsts: false
+domains:
+- domain: life-is-tech.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
+- domain: lifeistech-lesson.jp
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: none

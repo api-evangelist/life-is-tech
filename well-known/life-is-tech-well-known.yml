@@ -1,0 +1,245 @@
+generated: '2026-08-25'
+method: probed
+source: live probes of /.well-known/* on every public Life is Tech host
+hit_count: 0
+note: >-
+  Nothing was served. Life is Tech publishes no API host, so the probe ran against the
+  corporate site and the five public product hosts linked from the homepage. Three
+  distinct failure modes were observed and are recorded verbatim below: (a)
+  life-is-tech.com, members.life-is-tech.com, project.life-is-tech.com and
+  jobs.life-is-tech.com return genuine 403/404 for every /.well-known/ path, and the
+  control probe of a random path returns the same code, so these are honest absences;
+  (b) camp.life-is-tech.com and lifeistech-lesson.jp answer 403 (application/xml WAF
+  body) for EVERY path including the control, so nothing there is readable either way;
+  (c) dx.life-is-tech.com, leaders.life-is-tech.com, career.life-is-tech.com and
+  juku.lifeistech-lesson.jp are SPA hosts that answer HTTP 200 with an HTML shell for
+  every path INCLUDING the /zzz-control-9999 control probe — those 200s are soft-404s,
+  not documents, and are deliberately not recorded as hits. NO WellKnown or SecurityTxt
+  pointer is emitted from this file: it documents an absence.
+soft_404_control:
+- host: https://life-is-tech.com
+  path: /zzz-control-9999
+  status: 404
+  bytes: 11445
+  verdict: real-404
+- host: https://camp.life-is-tech.com
+  path: /zzz-control-9999
+  status: 403
+  bytes: 263
+  verdict: waf-blocks-everything
+- host: https://dx.life-is-tech.com
+  path: /zzz-control-9999
+  status: 200
+  bytes: 26077
+  verdict: spa-catch-all-200
+- host: https://leaders.life-is-tech.com
+  path: /zzz-control-9999
+  status: 200
+  bytes: 26296
+  verdict: spa-catch-all-200
+- host: https://career.life-is-tech.com
+  path: /zzz-control-9999
+  status: 200
+  bytes: 24581
+  verdict: spa-catch-all-200
+- host: https://members.life-is-tech.com
+  path: /zzz-control-9999
+  status: 404
+  bytes: 1602
+  verdict: real-404
+- host: https://project.life-is-tech.com
+  path: /zzz-control-9999
+  status: 404
+  bytes: 61180
+  verdict: real-404
+- host: https://jobs.life-is-tech.com
+  path: /zzz-control-9999
+  status: 404
+  bytes: 97915
+  verdict: real-404
+- host: https://lifeistech-lesson.jp
+  path: /zzz-control-9999
+  status: 403
+  bytes: 111
+  verdict: waf-blocks-everything
+- host: https://juku.lifeistech-lesson.jp
+  path: /zzz-control-9999
+  status: 200
+  bytes: 11340
+  verdict: spa-catch-all-200
+hosts:
+- host: https://life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://camp.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: https://dx.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent.json
+    status: 200
+    soft_404: true
+- host: https://leaders.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent.json
+    status: 200
+    soft_404: true
+- host: https://career.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent.json
+    status: 200
+    soft_404: true
+- host: https://members.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://project.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://jobs.life-is-tech.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://lifeistech-lesson.jp
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: https://juku.lifeistech-lesson.jp
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_404: true
+  - path: /.well-known/agent.json
+    status: 200
+    soft_404: true
