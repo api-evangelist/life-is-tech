@@ -13,6 +13,17 @@ description: >-
   EdTech to certify) and holds the PrivacyMark. Life is Tech sells finished learning
   products to schools and consumers; it publishes no public developer program, API,
   SDK or machine-readable contract.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://life-is-tech.com/assets/meta/ogp.png
 url: https://raw.githubusercontent.com/api-evangelist/life-is-tech/refs/heads/main/apis.yml
 x-type: company
